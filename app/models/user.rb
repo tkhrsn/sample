@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  # メールアドレスは登録前に小文字に変換する
+  before_save { self.email = email.downcase }
+
   # メールアドレスのformatを検証するための正規表現
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
