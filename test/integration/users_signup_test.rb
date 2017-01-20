@@ -16,7 +16,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count' do
       post users_path, params: { user: @user_form }
     end
-    #assert_template ''
+    follow_redirect!
+    assert_template 'users/show'
+    assert_select 'div.alert-success'
   end
 
   test "invalid signup information name blank" do
