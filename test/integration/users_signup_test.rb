@@ -29,7 +29,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
-    assert_select 'div.alert-danger', 'The form contains 1 error.'
+    assert_select 'div.alert-danger', /1 error/
     assert_select 'li', "Name can't be blank"
     assert_select 'form', :action => signup_path
   end
@@ -42,7 +42,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
-    assert_select 'div.alert-danger', 'The form contains 1 error.'
+    assert_select 'div.alert-danger', /1 error/
     assert_select 'li', /Name is too long/
     assert_select 'form', :action => signup_path
   end
@@ -55,7 +55,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
-    assert_select 'div.alert-danger', 'The form contains 2 errors.'
+    assert_select 'div.alert-danger', /2 errors/
     assert_select 'li', "Email can't be blank"
     assert_select 'li', "Email is invalid"
     assert_select 'form', :action => signup_path
@@ -70,7 +70,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
-    assert_select 'div.alert-danger', 'The form contains 1 error.'
+    assert_select 'div.alert-danger', /1 error/
     assert_select 'li', /Email is too long/
     assert_select 'form', :action => signup_path
   end
@@ -83,7 +83,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
-    assert_select 'div.alert-danger', 'The form contains 1 error.'
+    assert_select 'div.alert-danger', /1 error/
     assert_select 'li', "Email is invalid"
     assert_select 'form', :action => signup_path
   end
@@ -96,7 +96,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
-    assert_select 'div.alert-danger', 'The form contains 1 error.'
+    assert_select 'div.alert-danger', /1 error/
     assert_select 'li', /Password is too short/
     assert_select 'form', :action => signup_path
   end
@@ -109,7 +109,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
-    assert_select 'div.alert-danger', 'The form contains 1 error.'
+    assert_select 'div.alert-danger', /1 error/
     assert_select 'li', "Password confirmation doesn't match Password"
     assert_select 'form', :action => signup_path
   end
